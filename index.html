@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXO STORE | Tecnología que conecta</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="navbar">
+        <a href="#" class="logo">NEXO<span>.</span></a>
+
+        <nav id="navMenu">
+            <a href="#inicio">Inicio</a>
+            <a href="#productos">Productos</a>
+            <a href="#nosotros">Nosotros</a>
+        </nav>
+
+        <div class="header-buttons">
+            <button id="darkMode">🌙</button>
+            <button id="cartButton">🛒 Carrito (<span id="cartCount">0</span>)</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <span class="tag">NUEVA TEMPORADA</span>
+            <h1>Tecnología que <span>conecta.</span></h1>
+            <p>Descubrí productos increíbles para acompañarte todos los días.</p>
+            <a href="#productos" class="btn">Explorar productos →</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800" alt="Auriculares">
+        </div>
+    </section>
+
+    <section class="products-section" id="productos">
+        <div class="section-title">
+            <span class="tag">NUESTRO CATÁLOGO</span>
+            <h2>Explorá nuestros productos</h2>
+            <p>Encontrá la tecnología ideal para vos.</p>
+        </div>
+
+        <div class="filters">
+            <input type="search" id="searchInput" placeholder="🔎 Buscar productos...">
+
+            <select id="categoryFilter">
+                <option value="todos">Todas las categorías</option>
+                <option value="auriculares">Auriculares</option>
+                <option value="relojes">Relojes</option>
+                <option value="audio">Audio</option>
+                <option value="accesorios">Accesorios</option>
+            </select>
+
+            <select id="priceFilter">
+                <option value="todos">Todos los precios</option>
+                <option value="30000">Hasta $30.000</option>
+                <option value="50000">Hasta $50.000</option>
+                <option value="100000">Hasta $100.000</option>
+            </select>
+
+            <select id="sortFilter">
+                <option value="default">Ordenar por</option>
+                <option value="menor">Menor precio</option>
+                <option value="mayor">Mayor precio</option>
+                <option value="nombre">Nombre A-Z</option>
+            </select>
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+        <p id="noResults" hidden>No se encontraron productos.</p>
+    </section>
+
+    <section class="favorites-section">
+        <div class="section-title">
+            <span class="tag">TUS PREFERIDOS</span>
+            <h2>❤️ Mis favoritos</h2>
+        </div>
+        <div class="products-grid" id="favoritesGrid"></div>
+    </section>
+
+    <section class="about" id="nosotros">
+        <div>
+            <span class="tag">SOBRE NEXO</span>
+            <h2>Conectamos personas con tecnología.</h2>
+            <p>Somos una tienda dedicada a ofrecer productos modernos, innovadores y de calidad para mejorar tu día a día.</p>
+        </div>
+    </section>
+</main>
+
+<!-- CARRITO -->
+<div class="overlay" id="overlay"></div>
+
+<aside class="cart" id="cart">
+    <div class="cart-header">
+        <h2>🛒 Mi carrito</h2>
+        <button id="closeCart">✕</button>
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="coupon">
+        <input type="text" id="couponInput" placeholder="Cupón de descuento">
+        <button id="applyCoupon">Aplicar</button>
+    </div>
+
+    <div class="cart-footer">
+        <p>Subtotal: <strong id="subtotal">$0</strong></p>
+        <p>Descuento: <strong id="discount">$0</strong></p>
+        <h3>Total: <span id="total">$0</span></h3>
+        <button id="checkoutButton" class="btn">Finalizar compra</button>
+        <button id="clearCart" class="clear-btn">Vaciar carrito</button>
+    </div>
+</aside>
+
+<!-- COMPRA -->
+<div class="modal" id="checkoutModal">
+    <div class="modal-content">
+        <button id="closeModal" class="close-modal">✕</button>
+        <h2>Finalizar compra</h2>
+
+        <form id="checkoutForm">
+            <input type="text" id="buyerName" placeholder="Nombre completo" required>
+            <input type="email" id="buyerEmail" placeholder="Correo electrónico" required>
+            <input type="text" id="buyerAddress" placeholder="Dirección de envío" required>
+
+            <select id="paymentMethod" required>
+                <option value="">Método de pago</option>
+                <option>Tarjeta</option>
+                <option>Transferencia</option>
+                <option>Efectivo</option>
+            </select>
+
+            <button class="btn" type="submit">Confirmar compra</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <a href="#" class="logo">NEXO<span>.</span></a>
+    <p>Tecnología, innovación y estilo en un solo lugar.</p>
+    <p>© 2026 NEXO STORE - Proyecto educativo.</p>
+</footer>
+
+<div id="notification" class="notification" role="status"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
